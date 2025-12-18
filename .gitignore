@@ -1,0 +1,30 @@
+# Dependencies
+**/node_modules/
+
+# Builds
+**/dist/
+**/build/
+**/.next/
+**/out/
+
+# Env
+**/.env
+**/.env.*
+
+!.env.example
+
+# Coverage
+**/coverage/
+**/.vitest/
+**/.nyc_output/
+
+# Logs
+**/*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

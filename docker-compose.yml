@@ -1,6 +1,51 @@
+# version: '3'
+
+# services:
+#   postgres:
+#     image: mdillon/postgis:9.6
+#     restart: always
+#     ports:
+#       - "5555:5432"
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: engineTest888
+#       POSTGRES_DB: zesty
+#     volumes:
+#       - ./init-db/:/docker-entrypoint-initdb.d/
+#       - pg-data:/var/lib/postgresql/data
+# volumes:
+#   pg-data:
+
 version: '3'
 
 services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: zesty
+      DB_USER: postgres
+      DB_PASSWORD: engineTest888
+      PORT: 8080
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://localhost:8080
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
   postgres:
     image: mdillon/postgis:9.6
     restart: always
@@ -13,5 +58,12 @@ services:
     volumes:
       - ./init-db/:/docker-entrypoint-initdb.d/
       - pg-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
 volumes:
   pg-data:

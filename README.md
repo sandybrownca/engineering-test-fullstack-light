@@ -1,4 +1,4 @@
-# Zesty.ai Full-Stack Engineering Test
+# Full-Stack Engineering Test
 
 - [Background](#background)
 - [Assignment](#assignment)

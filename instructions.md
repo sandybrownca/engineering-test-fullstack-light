@@ -29,7 +29,7 @@
 
 ```bash
 # Build and start all services (database, backend, frontend)
-docker-compose -f docker-compose.app.yml up --build
+docker-compose -f docker-compose.yml up --build
 
 # Access the application
 # Frontend: http://localhost:3000
@@ -43,22 +43,22 @@ The first build will take a few minutes to download dependencies and build image
 
 ```bash
 # Stop all services
-docker-compose -f docker-compose.app.yml down
+docker-compose -f docker-compose.yml down
 
 # Stop and remove volumes (clears database)
-docker-compose -f docker-compose.app.yml down -v
+docker-compose -f docker-compose.yml down -v
 
 ## Troubleshooting
 
 **Port already in use:**
 ```bash
-# Change ports in docker-compose.app.yml
+# Change ports in docker-compose.yml
 ```
 
 **Database connection issues:**
 ```bash
 # Ensure PostgreSQL is fully started before backend
-# Check logs: docker-compose -f docker-compose.app.yml logs postgres
+# Check logs: docker-compose -f docker-compose.yml logs postgres
 ```
 
 **Frontend can't reach backend:**

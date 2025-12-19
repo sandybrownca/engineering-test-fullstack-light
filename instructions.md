@@ -6,12 +6,14 @@
 - pg (PostgreSQL client with PostGIS support)
 - sharp (server-side image processing)
 - axios (fetching images from GCS)
+- Jest (for unit testing) 
 
 **Frontend:**
 - React 18 with TypeScript
 - Vite (fast build tool)
 - React Router (client-side routing)
 - Nginx (production serving)
+- Vitest(unit testing)
 
 **Database:**
 - PostgreSQL 9.6 with PostGIS extensions(provided)
